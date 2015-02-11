@@ -1,0 +1,114 @@
+<?php
+
+/*
+
+ * Created on 2008-2-22
+
+ *
+
+ * To change the template for this generated file go to
+
+ * Window - Preferences - PHPeclipse - PHP - Code Templates
+
+ */
+
+ session_start();
+
+ mysql_connect("localhost","concoursdepiano","ehjsliu") or die("Erreur de connextion a MySQL");
+
+mysql_select_db("concoursdepiano") or die("Erreur de connexion a la base de donnees");
+
+ $proprietaire=$_SESSION['login'];
+
+ $descriptif=$_POST['descriptif'];
+
+ $nomphoto=$_POST['nomdephoto'];
+
+ $query = "INSERT INTO photo (nomphoto,descriptif,proprietaire)
+
+	   VALUES('$nomphoto','$descriptif','$proprietaire')";
+
+mysql_query($query);
+
+$nomfichier=mysql_insert_id();
+
+
+
+ if(!empty($_FILES["fichier_choisi"]["name"]))
+
+{
+
+	//nom du fichier choisi:
+
+
+
+	$nomFichier    = "img".$nomfichier.".jpg";
+
+	echo $nomFicher;
+
+	//nom temporaire sur le serveur:
+
+	$nomTemporaire = $_FILES["fichier_choisi"]["tmp_name"] ;
+
+	//type du fichier choisi:
+
+	$typeFichier   = $_FILES["fichier_choisi"]["type"] ;
+
+	//poids en octets du fichier choisi:
+
+	$poidsFichier  = $_FILES["fichier_choisi"]["size"] ;
+
+	//code de l'erreur si jamais il y en a une:
+
+	$codeErreur    = $_FILES["fichier_choisi"]["error"] ;
+
+
+
+	//chemin qui m¨¨ne au dossier qui va contenir les fichiers upload:
+
+	$chemin = "Photo\\" ;
+
+   if($_FILES["fichier_choisi"]["type"]=="image/jpeg"){
+
+	if(copy($nomTemporaire, $chemin.$nomFichier))
+
+		{echo("<br/>le t&eacute;l&eacute;chargement a r&eacute;ussi");
+
+		 echo "<a href=\"index.php\">retourner a la page pr&eacute;c&eacute;dente</a>";
+
+
+
+		 }
+
+	else
+
+		{echo("<br/>le t&eacute;l&eacute;chargement a &eacute;chou&eacute;") ;
+
+			echo "<a href=\"index.php\">retourner a la page pr&eacute;c&eacute;dente</a>";
+
+			$supprimer="DELETE FROM photo WHERE nomfichier=$nomfichier";
+
+			mysql_query($supprimer);
+
+
+
+		}
+
+}
+
+else echo "Le fichier n'est pas de type photo.";} //fin if
+
+else
+
+{
+
+	echo("Vous n'avez pas choisi de fichier!!<br/>") ;
+
+	echo "<a href=\"index.php\">retourner a la page pr&eacute;c&eacute;dente</a>";
+
+}
+
+//fin else
+
+?>
+

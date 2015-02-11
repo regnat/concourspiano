@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Concours de piano Ecole Polytechnique</title>
+<link type="text/css" href="index.css" rel="stylesheet" title="index" />
+</head>
+<?php
+ session_start();
+
+ mysql_connect("localhost","concoursdepiano","ehjsliu") or die("Erreur de connextion a MySQL");
+
+ mysql_select_db("concoursdepiano") or die("Erreur de connexion a la base de donnees");
+
+ $login=$_SESSION['login'];
+
+ $mdp="mdp";
+
+ $profil="profil";
+
+ $photo="photo";
+
+ $musique="musique";
+
+ echo "<a href=\"index.php?title=perso&lang=ch&action=$mdp\">修改密码</a>";
+
+ echo "<br/>";
+
+ echo "<a href=\"index.php?title=perso&lang=ch&action=$profil\">修改个人资料</a>";
+
+ echo "<br/>";
+
+ echo "<a href=\"index.php?title=perso&lang=ch&action=$photo\">上传照片</a>";
+
+ echo "<br/>";
+
+ echo "<a href=\"index.php?title=etat_inscription&lang=ch\">您的注册状态</a>";
+
+ echo "<br/>";
+
+ echo "<a href=\"index.php?title=accueil&lang=ch\">回首页</a>";
+
+ echo "<br/>";
+
+ echo "您的照片库:";
+
+ $login=$_SESSION['login'];
+
+ $ch="SELECT*FROM photo WHERE proprietaire='$login'";
+
+ $reponse=mysql_query($ch);
+
+ while($tab=mysql_fetch_assoc($reponse)) {echo $tab['nomphoto'];}
+
+ echo "<br/>";
+
+<body>
+</body>
+</html>
+

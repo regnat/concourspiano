@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+    <description>Fiches techniques</description>
+    <link>http://localhost/index.php</link>
+    <title>Automobile Club de l'X</title>
+    <ttl> 40320 </ttl>
+    
+    <item>
+        <title>Clio 2003</title>
+        <pubDate>Mon, 20 Apr 09 09:52:01 +0200</pubDate>
+        <time>1240213921</time>
+        <link>http://www.lacentrale.fr/fiche-technique-voiture-renault-clio-ii+(2)+1.5+dci+65+ch+expression+5p-2003.html</link>
+        <description>Toutes les caractéristiques de la Renault Clio 2003</description>
+     </item>
+        
+        <item><title>Renault 2000</title><pubDate>Tue, 21 Apr 09 13:18:52 +0200</pubDate><time>1240312732</time><link>http://www.lacentrale.fr/fiche-technique-voiture-renault-clio-ii+(2)+1.5+dci+65+ch+expression+5p-2003.html</link><description>La meilleure voiture</description></item><item><title>Renault 2000</title><pubDate>Tue, 21 Apr 09 13:21:34 +0200</pubDate><time>1240312894</time><link>http://www.lacentrale.fr/fiche-technique-voiture-renault-clio-ii+(2)+1.5+dci+65+ch+expression+5p-2003.html</link><description>La meilleure voiture</description></item></channel></rss>

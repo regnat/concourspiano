@@ -1,0 +1,22 @@
+<?php
+/*
+ * Created on 2008-3-21
+ *
+ * To change the template for this generated file go to
+ * Window - Preferences - PHPeclipse - PHP - Code Templates
+ */
+ session_start();
+ require 'auth.php';
+ $action=$_GET['action'];
+ echo $action;
+ $login=$_SESSION['login'];
+ switch($action){
+ 	case "mdp":echo changepasswdform();break;
+ 	case "profil":echo changeinscriptionform($login);break;
+ 	case "photo":echo uploadphoto();break;
+ 	break;
+	default:
+	echo "ERREUR";
+	break;
+ }
+?>

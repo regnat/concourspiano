@@ -1,0 +1,7 @@
+<?php
+session_start();
+require("auth.php");
+$login=$_SESSION['login'];
+$motdepasse=$_SESSION['motdepasse'];
+echo registrationform($login,$motdepasse);
+?>

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<!--
+ * Created on 11 avr. 08
+ *
+ * To change the template for this generated file go to
+ * Window - Preferences - PHPeclipse - PHP - Code Templates
+-->
+ <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title> Concours de piano Ecole Polytechnique</title>
+ </head>
+ <?php
+mysql_connect("localhost", "concoursdepiano", "ehjsliu") or die("Erreur de connexion  MySQL");
+mysql_select_db("concoursdepiano") or die("Erreur de connexion a la base de donnees");
+$login=$_POST['login'];;
+
+$pw1=$_POST['pw1'];
+
+$pw2=$_POST['pw2'];
+
+if($login==null or $pw1==null or $pw2==null)
+{echo '<br>有未填项';echo "<a href=\"index.php?title=register&lang=ch\">重新注册</a>";}
+else if($pw1!=$pw2)
+ {echo "密码确认错误";echo "<a href=\"index.php?title=register&lang=ch\">重新注册</a>";}
+else if(mysql_num_rows(mysql_query("SELECT*FROM candidats WHERE login='$login'"))!=0)
+{echo '<br>用户名已被使用';echo "<a href=\"index.php?title=register&lang=ch\">重新注册</a>";}//faire la meme chose que l authentification;
+else {
+echo '<br> 用户名可以使用！';$_SESSION['login']=$login;$_SESSION['motdepasse']=$pw1;
+echo "<br><br><a href=\"index.php?title=infosperso&lang=ch\"> 继续注册</a>";}
+?>
+<body></body>
+</html>

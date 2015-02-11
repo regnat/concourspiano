@@ -1,0 +1,52 @@
+<?php
+
+/*
+
+ * Created on 2008-3-28
+
+ *
+
+ * To change the template for this generated file go to
+
+ * Window - Preferences - PHPeclipse - PHP - Code Templates
+
+ */
+
+session_start();
+
+mysql_connect("localhost","concoursdepiano","ehjsliu") or die("Erreur de connextion a MySQL");
+
+mysql_select_db("concoursdepiano") or die("Erreur de connexion a la base de donnees");
+
+$q="SELECT* FROM candidats";
+
+$reponse=mysql_query($q);
+
+while ($tab = mysql_fetch_assoc($reponse)){
+
+	$login=$tab['login'];
+    if($login!="admin"){
+	$re="SELECT* FROM photo WHERE proprietaire='$login'";
+
+	$res=mysql_query($re);
+
+	$i=0;
+
+	while($ta=mysql_fetch_assoc($res)){
+
+		$j=$ta['nomfichier'];
+
+		if($j>$i) $i=$j;
+
+	}
+
+	$img="/projet2/projet/Photo/"."img".$i.".jpg";
+
+	echo "<div style=\"float:left; margin:25px; text-align:center;\"><a><image src=\"$img\" width=\"100px\"; height=\"120px\"></a><br/>";
+
+	echo "<a href=\"index.php?title=candidats&login=$login\">$login</a></div>";}
+
+}
+
+?>
+

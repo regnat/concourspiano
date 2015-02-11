@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Concours de piano Ecole Polytechnique</title>
+<link type="text/css" href="index.css" rel="stylesheet" title="index" />
+</head>
+<?php
+session_start();
+if($_SESSION['logged']=="logged")
+{echo "您已经做为"; echo $_SESSION['login']."登录了!";
+ echo "<a href=\"index.php?action=quitter&lang=ch\">退出</a> <br>";}
+else {echo
+"<form action=\"index.php?title=login2&lang=ch\" method=\"POST\">
+登录<br><br>
+用户名<p><input type=\"text\" name=\"login\"></p>
+密码<p><input type=\"password\" name=\"motdepasse\"></p>
+<input type=\"submit\" value=\"登录\"><br>
+</form>
+<p>还没注册？
+<a href=\"index.php?title=register&lang=ch\">马上注册!</a></p>";}
+?>
+<body>
+</body>
+</html>

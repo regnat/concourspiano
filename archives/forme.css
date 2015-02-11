@@ -1,0 +1,105 @@
+/*
+    Document   : accueil
+    Created on : 6 févr. 2009, 13:39:08
+    Author     : Ghislain
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+
+
+h1{
+    font-family: Arial;
+    background-position: center;
+    font-size: 24pt;
+    text-align: center;
+    vertical-align: middle;
+}
+
+h2{
+
+    font-family: Arial;
+    text-align: left;
+    font-size: 12pt;
+}
+.centreimage{
+    text-align:center;
+    padding-right:150px;
+}
+
+.menu{
+    float:left;
+    background-color:#CDCBC6;
+    border:solid black 1px;
+    width:150px;
+}
+
+a:visited {
+    text-decoration:none;
+    color:blue;
+}
+
+a:link{
+    color:red;
+}
+
+.presentation{
+    margin:10px;
+    font-size: 24px;
+    font-family: 'Times New Roman',Times,serif;
+}
+
+.casemenu{
+   border:solid black 1px;
+   padding:2%;
+}
+
+.javascript {
+  display: none;
+}
+
+.registrationForm{
+    margin:10px;
+}
+
+.loginForm{
+
+}
+.changepasswdForm{
+    margin:10px;
+}
+.deleteuserForm{
+    margin:10px;
+}
+.marges_photo {
+    margin-left: 10px;
+    margin-right: 20px;
+    float: left;
+}
+
+h3{
+    font-family: 'Times New Roman',Times,serif;
+    text-align: left;
+    font-size: 16pt;
+}
+
+.annuaire{
+    margin:10px;
+    padding-bottom:10px;
+    clear:both;
+}
+body {
+    margin:5px;
+    border:0px;
+    background-color:#ddddff;
+}
+
+.tout{
+    padding: 10px;
+}
+

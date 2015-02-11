@@ -1,0 +1,47 @@
+<?php
+
+/*
+
+ * Created on 2008-3-14
+
+ *
+
+ * To change the template for this generated file go to
+
+ * Window - Preferences - PHPeclipse - PHP - Code Templates
+
+ */
+
+
+
+session_start();
+mysql_connect("localhost","concoursdepiano","ehjsliu") or die("Erreur de connexion a MySQL");
+mysql_select_db("concoursdepiano") or die("Erreur de connexion a la base de donnees");
+ require("auth.php");
+ $username=$_POST['login'];
+ $password=$_POST['motdepasse'];
+ if(isValidUser($username,$password))
+ {
+  $_SESSION['logged']="logged";
+  if($username=="admin")
+  	$_SESSION['admin']=true;
+  $q="SELECT*FROM candidats WHERE login='$username'";
+  $reponse=mysql_query($q);
+  $tab=mysql_fetch_assoc($reponse);
+  foreach($tab as $title => $value){
+   $_SESSION[$title]=$value;
+
+  }
+  echo "Bienvenue ";
+  echo $_SESSION['prenom'];
+  echo "<br/>";
+    echo "<a href=\"index.php?title=pageperso&lang=fr\">vers votre page personnelle</a>";
+    echo "<br/>";
+    echo "<a href=\"index.php?action=quitter\">quitter</a> <br/>";
+ }
+ else {
+  echo "<a href=\"index.php?title=login&lang=fr\">mot de passe incorrect!r&eacute;essayer</a>";
+
+}
+?>
+

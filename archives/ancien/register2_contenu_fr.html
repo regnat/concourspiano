@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+ * Created on 11 avr. 08
+ *
+ * To change the template for this generated file go to
+ * Window - Preferences - PHPeclipse - PHP - Code Templates
+-->
+ <head>
+  <title> </title>
+ </head>
+ <body>
+ <?php
+ mysql_connect("localhost", "concoursdepiano", "ehjsliu") or die("Erreur de connexion  MySQL");
+mysql_select_db("concoursdepiano") or die("Erreur de connexion  la base de donnees");
+$login=$_POST['login'];;
+
+$pw1=$_POST['pw1'];
+
+$pw2=$_POST['pw2'];
+
+if($login==null or $pw1==null or $pw2==null)
+{echo '<br>Un champ est incomplet';echo "<a href=\"index.php?title=register&lang=fr\">reessayer</a>";}
+else if($pw1!=$pw2)
+ {echo "differentes mot de passe";echo "<a href=\"index.php?title=register&lang=fr\">reessayer</a>";}
+else if(mysql_num_rows(mysql_query("SELECT*FROM candidats WHERE login='$login'"))!=0)
+{echo '<br> compte deja cree';echo "<a href=\"index.php?title=register&lang=fr\">reessayer</a>";}//faire la meme chose que l authentification;
+else {
+echo '<br> Votre compte a bien &eacute;t&eacute; cr&eacute;&eacute;. Bienvenue !';$_SESSION['login']=$login;$_SESSION['motdepasse']=$pw1;
+echo "<br/><br/><a href=\"index.php?title=infosperso&lang=fr\"> Continuer l'inscription </a>";}
+?>
+</body>
+</html>

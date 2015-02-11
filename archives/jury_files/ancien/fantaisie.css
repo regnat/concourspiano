@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+
+.conteneur {
+	background-color:#FF33FF;
+	width: 800px;
+	margin: 0 auto;
+}
+
+.titre {
+	background-color:#FF33FF;
+	height:160px;
+	font-family : Brush Scrpt, cursive;
+	color : #0099FF;
+	font-size : 50px;
+}
+
+.menu {
+	float:left;
+	width: 200px;
+	height:1000px;
+	background-color:#66FF33;
+	color : black;
+}
+
+.contenu {
+	background-color:#0099FF;
+	height:1000px;
+}

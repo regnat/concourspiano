@@ -1,0 +1,15 @@
+<?php
+session_start();
+if($_SESSION['logged']=="logged")
+{echo "Attention ! Vous &ecirc;tes d&eacute;j&agrave; connect&eacute; comme "; echo $_SESSION['login']."!";
+ echo "<a href=\"index.php?action=quitter\">quitter</a> <br/>";}
+else {echo
+"<form action=\"index.php?title=login2&lang=fr\" method=\"POST\">
+Authentification<br/><br/>
+login<p><input type=\"text\" name=\"login\"></p>
+mot de passe<p><input type=\"password\" name=\"motdepasse\"></p>
+<input type=\"submit\" value=\"valider\"><br/>
+</form>
+<p>Pas encore inscrit ?
+<a href=\"index.php?title=register&lang=fr\">C'est ici que &ccedil;a se passe !</a></p>";}
+?>

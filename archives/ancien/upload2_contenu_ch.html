@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+<link type="text/css" href="index.css" rel="stylesheet" title="index" />
+</head>
+<?php
+
+ session_start();
+
+ mysql_connect("localhost","concoursdepiano","ehjsliu") or die("Erreur de connextion a MySQL");
+
+mysql_select_db("concoursdepiano") or die("Erreur de connexion a la base de donnees");
+
+ $proprietaire=$_SESSION['login'];
+
+ $descriptif=$_POST['descriptif'];
+
+ $nomphoto=$_POST['nomdephoto'];
+
+ $query = "INSERT INTO musique (nommusique,descriptif,proprietaire)
+
+	   VALUES('$nomphoto','$descriptif','$proprietaire')";
+
+mysql_query($query);
+
+$nomfichier=mysql_insert_id();
+
+
+
+ if(!empty($_FILES["fichier_choisi"]["name"]))
+
+{
+
+	//nom du fichier choisi:
+
+
+
+	$nomFichier    = "img".$nomfichier.".jpg";
+
+	echo $nomFicher;
+
+	//nom temporaire sur le serveur:
+
+	$nomTemporaire = $_FILES["fichier_choisi"]["tmp_name"] ;
+
+	//type du fichier choisi:
+
+	$typeFichier   = $_FILES["fichier_choisi"]["type"] ;
+
+	//poids en octets du fichier choisit:
+
+	$poidsFichier  = $_FILES["fichier_choisi"]["size"] ;
+
+	//code de l'erreur si jamais il y en a une:
+
+	$codeErreur    = $_FILES["fichier_choisi"]["error"] ;
+
+
+
+	//chemin qui mène au dossier qui va contenir les fichiers upload:
+
+	$chemin = "Musique\\" ;
+
+
+
+	if(copy($nomTemporaire, $chemin.$nomFichier))
+
+		{echo("<br>上传成功");
+
+		 echo "<a href=\"index.php?lang=ch\">回首页</a>";
+
+		 }
+
+	else
+
+		{echo("<br>上传失败") ;
+
+			echo "<a href=\"index.php?lang=ch\">回首页</a>";
+
+			$supprimer="DELETE FROM photo WHERE nomfichier=$nomfichier";
+
+			mysql_query($supprimer);
+
+		}
+
+}//fin if
+
+else
+
+{
+
+	echo("您没有选择文件!!<br>") ;
+
+	echo "<a href=\"index.php?lang=ch\">回首页</a>";
+
+}//fin else
+
+?>
+<body>
+</body>
+</html>
+

@@ -1,0 +1,81 @@
+<?php
+
+/*
+
+ * Created on 2008-4-4
+
+ *
+
+ * To change the template for this generated file go to
+
+ * Window - Preferences - PHPeclipse - PHP - Code Templates
+
+ */
+
+session_start();
+
+mysql_connect("localhost","concoursdepiano","ehjsliu") or die("Erreur de connextion a MySQL");
+
+mysql_select_db("concoursdepiano") or die("Erreur de connexion a la base de donnees");
+
+require ("auth.php");
+
+echo $_SESSION['admin'];
+
+$login=$_GET['login'];
+
+$re="SELECT* FROM photo WHERE proprietaire='$login'";
+
+	$reponse=mysql_query($re);
+
+	$i=0;
+
+	while($ta=mysql_fetch_assoc($reponse)){
+
+		$j=$ta['nomfichier'];
+
+		if($j>$i) $i=$j;
+
+	}
+
+	$img="/Projet/images/"."img".$i.".jpg";
+
+	echo "<div style=\"text-align:center\"><a><image src=\"$img\" width=\"100px\"; height=\"120px\"></a><br/></div>";
+
+    $q="SELECT* FROM candidats WHERE login='$login'";
+
+    $res=mysql_query($q);
+     echo "<div style=\"text-align:center\">";
+
+     while($tab=mysql_fetch_assoc($res)){
+
+	$i=0;
+
+	foreach($tab as $til=>$val){
+
+		if($i>=2&&$i<=8){
+
+		echo "$til : $val";
+
+		echo "<br>";}
+
+		$i++;
+
+	}
+
+}
+
+echo "</div>";
+
+if($_SESSION['admin']=="true") {
+
+	$_SESSION['delete']=$login;
+    $_SESSION['changeretat']=$login;
+	echo deleteuserform();
+    echo "<br>";
+    echo  changeretatform();
+
+}
+
+?>
+

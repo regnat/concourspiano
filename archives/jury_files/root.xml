@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<root>
+  <page>accueil</page>
+  <page>contact</page>
+  <page>inscription</page>
+  <page>changepasswd</page>
+  <page>deleteuser</page>
+  <page>liens</page>
+  <page>documents</page>
+  <page>presentation</page>
+  <page>calendrier</page>
+  <page>mapage</page>
+  <page>programmemusical</page>
+  <page>reglement</page>
+  <page>resultats</page>
+  <page>sponsors</page>
+  </root>

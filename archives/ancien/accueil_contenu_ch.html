@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+<link type="text/css" href="index.css" rel="stylesheet" title="index" />
+</head>
+<?php
+if($_SESSION['logged']=="logged")
+  {echo "你好";
+   echo $_SESSION['nom'];
+   echo "<br>";
+   echo "<a href=\"index.php?action=quitter&lang=ch\">退出</a> <br>";
+   echo "<a href=\"index.php?title=pageperso&lang=ch\">您的个人页面</a>";}
+?>
+
+
+<body>
+<div class="image1">
+<img src="images/01.jpg"
+alt="finale dans l'amphit&eacute;&acirc;tre Poincar&eacute;"
+title="finale dans l'amphit&eacute;&acirc;tre Poincar&eacute;"/></div>
+<br>
+<br>
+<div class="image2">
+<center><img src="images/affichefinalepetite.jpg"
+alt="affiche de la 24&egrave;me &eacute;dition;"
+title="affiche de la 24&egrave;me &eacute;dition;"/></center></div>
+<br>
+<br>
+<div class="image3">
+    <p>
+    <a href="http://validator.w3.org/check?uri=referer"><img
+        src="http://www.w3.org/Icons/valid-html401"
+        alt="Valid HTML 4.01 Transitional" height="31" width="88"></a>
+  </p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Concours de piano Ecole Polytechnique</title>
+<link type="text/css" href="index.css" rel="stylesheet" title="index" />
+</head>
+<?php
+if($_SESSION['logged']=="logged")
+  {echo "BONJOUR ";
+   echo $_SESSION['nom'];
+   echo "<br>";
+   echo "<a href=\"index.php?action=quitter\">quitter</a> <br>";
+   echo "<a href=\"index.php?title=pageperso&lang=fr\">vers votre page personnelle</a>";}
+?>
+
+
+<body>
+
+<!-- <div class="image1">
+// <img src="images/01.jpg"
+alt="finale dans l'amphit&eacute;&acirc;tre Poincar&eacute;"
+title="finale dans l'amphit&eacute;&acirc;tre Poincar&eacute;"/></div> -->
+<div style="font-size-colour:green;text-align:center;font-size:36px;">
+    <br/><br/><br/>
+    <b>Attention changement de date : <br/>finale le 2 février 2010</b>
+</div>
+<br>
+<br>
+<div class="image2">
+<center><img src="images/affic_piano_2010_Page_3.jpg"
+alt="affiche de la 25&egrave; &eacute;dition"
+title="affiche de la 25&egrave; &eacute;dition"
+height="600px"/></center></div>
+<br>
+<br>
+<div class="image3">
+    <p>
+    <a href="http://validator.w3.org/check?uri=referer"><img
+        src="http://www.w3.org/Icons/valid-html401"
+        alt="Valid HTML 4.01 Transitional" height="31" width="88"></a>
+  </p>
+
+</div>
+</body>
+</html>

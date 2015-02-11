@@ -1,0 +1,60 @@
+<?php
+
+/*
+
+ * Created on 2008-3-21
+
+ *
+
+ * To change the template for this generated file go to
+
+ * Window - Preferences - PHPeclipse - PHP - Code Templates
+
+ */
+
+ session_start();
+
+ mysql_connect("localhost","concoursdepiano","ehjsliu") or die("Erreur de connextion a MySQL");
+
+mysql_select_db("concoursdepiano") or die("Erreur de connexion a la base de donnees");
+
+ $login=$_SESSION['login'];
+
+ $mdp="mdp";
+
+ $profil="profil";
+
+ $photo="photo";
+
+ $musique="musique";
+
+ echo "<a href=\"index.php?title=perso&lang=fr&action=$mdp\">changer le mot de passe</a><br/><br/>";
+
+ echo "<br/>";
+
+ echo "<a href=\"index.php?title=perso&lang=fr&action=$profil\">changer le profil</a><br/><br/>";
+
+ echo "<br/>";
+
+ echo "<a href=\"index.php?title=perso&lang=fr&action=$photo\">upload yours photos</a><br/><br/>";
+
+ echo "<br/>";
+
+ echo "<a href=\"index.php?title=accueil&lang=fr\">vers la page d'accueil</a><br/><br/>";
+
+ echo "<br/>";
+
+ echo "Votre album photo contient:";
+
+ $login=$_SESSION['login'];
+
+ $ch="SELECT*FROM photo WHERE proprietaire='$login'";
+
+ $reponse=mysql_query($ch);
+
+ while($tab=mysql_fetch_assoc($reponse)) {echo $tab['nomphoto'];}
+
+ echo "<br/>";
+
+?>
+
